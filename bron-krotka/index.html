@@ -15,14 +15,13 @@
       fetch('/wpisy/bron-krotka/meta.json')
       .then(r => r.json())
       .then(posts => render(posts));
-
+      
+      function render(posts) {
+      const c = document.getElementById('short-posts');
       if (!posts || posts.length === 0) {
       c.innerHTML += '<div class="post-card"><p>Na tą chwilę w tej kategori nie ma jeszcze żadnych wpisów.</p></div>';
       return;
       }
-      
-      function render(posts) {
-      const c = document.getElementById('short-posts');
       posts.forEach(p => {
       let thumbnailHTML = '';
       if (p.thumbnail) {
@@ -42,4 +41,5 @@
 
 
 </html>
+
 
